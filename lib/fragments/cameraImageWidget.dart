@@ -3,17 +3,17 @@ import 'package:image_picker/image_picker.dart';
 import 'dart:async';
 import 'dart:io';
 
-class FirstScreen extends StatefulWidget {
+class CameraImageWidget extends StatefulWidget {
   @override
   _MyHomePageState createState() => new _MyHomePageState();
 }
 
-class _MyHomePageState extends State<FirstScreen> {
+class _MyHomePageState extends State<CameraImageWidget> {
   File _image;
   int _index = 0;
   Future getImage() async {
     print(ImageSource);
-    var image = await ImagePicker.pickImage(source: ImageSource.gallery);
+    var image = await ImagePicker.pickImage(source: ImageSource.camera);
 
     setState(() {
       _image = image;
@@ -98,9 +98,6 @@ Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese Alps. Situate
       ),
     );
     return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('Image Picker Example'),
-      ),
       body: ListView(
         children: [
           _image == null
